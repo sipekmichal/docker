@@ -1,4 +1,4 @@
-FROM sipekmichal/debian-openjdk8-amazon-corretto
+FROM sipekmichal/java:1.8.0-amazon-corretto-debian-jessie
 
 LABEL maintainer="mich.sipek@gmail.com"
 
