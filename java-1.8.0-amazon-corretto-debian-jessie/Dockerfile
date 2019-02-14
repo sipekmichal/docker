@@ -3,8 +3,7 @@ FROM debian:jessie
 LABEL maintainer="mich.sipek@gmail.com"
 
 ADD https://d3pxv6yz143wms.cloudfront.net/java-1.8.0-amazon-corretto-jdk_8.192.12-2_amd64.deb ./
-COPY local_policy.jar /opt/
-COPY US_export_policy.jar /opt/
+COPY local_policy.jar US_export_policy.jar /opt/
 
 RUN echo deb "http://http.debian.net/debian jessie-backports main" >>/etc/apt/sources.list.d/backports.list && \
     echo "CET" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata && \    
