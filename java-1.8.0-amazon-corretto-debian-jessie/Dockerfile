@@ -13,7 +13,7 @@ RUN echo deb "http://http.debian.net/debian jessie-backports main" >>/etc/apt/so
     DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes java-common && \
     dpkg --install java-1.8.0-amazon-corretto-jdk_8.192.12-2_amd64.deb  && \
     rm -rf java-1.8.0-amazon-corretto-jdk_8.192.12-2_amd64.deb && \
-    apt-get clean  && \
+    apt-get clean all && \
     rm -rf /var/lib/apt/lists/* && \
     mv /opt/*.jar /usr/lib/jvm/java-1.8.0-amazon-corretto/jre/lib/security/
 
