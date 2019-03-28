@@ -4,8 +4,7 @@ LABEL maintainer="mich.sipek@gmail.com"
 
 ADD https://d3pxv6yz143wms.cloudfront.net/java-1.8.0-amazon-corretto-jdk_8.192.12-2_amd64.deb ./
 
-RUN echo deb "http://http.debian.net/debian jessie-backports main" >>/etc/apt/sources.list.d/backports.list && \
-    echo "CET" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata && \
+RUN echo "CET" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata && \
     mkdir -p /usr/share/man/man1 && touch /usr/share/man/man1/javac.1.dpkg-tmp && \    
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes java-common && \
