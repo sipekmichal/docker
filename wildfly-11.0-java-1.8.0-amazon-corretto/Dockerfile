@@ -1,4 +1,4 @@
-FROM sipekmichal/debian-openjdk8-amazon-corretto
+FROM sipekmichal/java:1.8.0-amazon-corretto-debian-jessie
 
 LABEL maintainer="mich.sipek@gmail.com"
 
@@ -20,9 +20,9 @@ chown wildfly:jboss /opt/upload
 
 USER wildfly
 
-ADD ojdbc7*.jar /opt/wildfly/modules/com/oracle/main/
-ADD module.xml /opt/wildfly/modules/com/oracle/main/
-ADD standalone.xml /opt/wildfly/standalone/configuration/
+COPY ojdbc7*.jar /opt/wildfly/modules/com/oracle/main/
+COPY module.xml /opt/wildfly/modules/com/oracle/main/
+COPY standalone.xml /opt/wildfly/standalone/configuration/
 
 EXPOSE 8080 9990
 
