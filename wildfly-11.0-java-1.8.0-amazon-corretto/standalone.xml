@@ -463,6 +463,7 @@
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <http-invoker security-realm="ApplicationRealm"/>
+                    <filter-ref name="xFrameOptions"/>
                 </host>
             </server>
             <servlet-container name="default" default-encoding="UTF-8">
@@ -472,6 +473,9 @@
             <handlers>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
             </handlers>
+            <filters>
+                <response-header name="xFrameOptions" header-name="X-Frame-Options" header-value="SAMEORIGIN"/>
+            </filters>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0">
             <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
