@@ -6,7 +6,10 @@ ENV JBOSS_HOME=/opt/wildfly
 ENV REFRESHED_AT="2010-01-23 14:34"
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN wget http://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.tar.gz && \
+RUN apt-get update && \
+apt-get install -y java-common curl tzdata less vim-nox libfreetype6 fontconfig libfontconfig1 jq python-pip gettext-base && \
+pip install awscli && \
+wget http://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.tar.gz && \
 tar -xvzf wildfly-11.0.0.Final.tar.gz && \
 mv wildfly-11.0.0.Final /opt/wildfly &&\
 rm wildfly-11.0.0.Final.tar.gz && \
