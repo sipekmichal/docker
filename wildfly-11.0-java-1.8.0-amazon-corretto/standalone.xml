@@ -464,6 +464,7 @@
                     <location name="/" handler="welcome-content"/>
                     <http-invoker security-realm="ApplicationRealm"/>
                     <filter-ref name="xFrameOptions"/>
+                    <filter-ref name="x-content-type-options"/>
                 </host>
             </server>
             <servlet-container name="default" default-encoding="UTF-8">
@@ -475,6 +476,7 @@
             </handlers>
             <filters>
                 <response-header name="xFrameOptions" header-name="X-Frame-Options" header-value="SAMEORIGIN"/>
+                <response-header name="x-content-type-options" header-name="X-Content-Type-Options" header-value="nosniff"/>
             </filters>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0">
