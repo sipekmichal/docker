@@ -2,7 +2,7 @@ FROM debian:jessie
 
 LABEL maintainer="mich.sipek@gmail.com"
 
-ADD https://d3pxv6yz143wms.cloudfront.net/8.232.09.1/java-1.8.0-amazon-corretto-jdk_8.232.09-1_amd64.deb ./
+ADD https://c.cloudfront.net/8.232.09.1/java-1.8.0-amazon-corretto-jdk_8.232.09-1_amd64.deb ./
 COPY local_policy.jar US_export_policy.jar /opt/
 
 RUN echo "CET" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata && \    
